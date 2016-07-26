@@ -2,18 +2,15 @@
 class AnswerGenerator {
 
     static buildAnswerGenerator() {
-        const answerArray = [];
 
-        while (answerArray.length < 4) {
-            const answer = Math.floor(Math.random()*10);
-            const a= answerArray.find(a=>a === answer);
-
-            if (!a) {
-                answerArray.push(answer);
-            }
+        const digits=[0,1,2,3,4,5,6,7,8,9];
+        const  result=[];
+        for(let i=0;i<4;i++){
+            const randomNumber=parseInt(Math.random()*digits.length);
+            result.push((digits.splice(randomNumber,1))[0]);
         }
 
-        return answerArray.join('');
+        return result.join('');
     }
 }
 

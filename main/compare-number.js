@@ -1,10 +1,6 @@
 class CompareNumber {
-    constructor(result, input) {
-        this.result = result;
-        this.input = input;
-    }
-
-    getResult() {
+    
+   static getResult(result,input) {
 
         const getA=(resultArray, inputArray)=>{
 
@@ -21,8 +17,8 @@ class CompareNumber {
             }).reduce((a,b)=>a+b);
         };
 
-        const resultArray = this.result.split('');
-        const inputArray = this.input.split('');
+        const resultArray = result.split('');
+        const inputArray = input.split('');
 
         const countA = getA(resultArray, inputArray);
 
@@ -33,5 +29,6 @@ class CompareNumber {
     }
 
 }
+
 
 module.exports = CompareNumber;
