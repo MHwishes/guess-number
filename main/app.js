@@ -5,19 +5,19 @@ const CompareNumber = require('../main/compare-number.js');
 
 class GuessNumber {
 
-   static guessNumber() {
-       
+    static guessNumber() {
+
         console.log('Welcome!\n');
 
-        let times ;
+        let times;
         const answer = AnswerGenerator.buildAnswerGenerator();
 
         for (times = 6; times > 0; times--) {
 
             console.log(`Please input your number(${times}):`);
-            const input=this.inputNumber();
-            
-            if(!input.split('').every(this.isUnique)){
+            const input = this.inputNumber();
+
+            if (!input.split('').every(this.isUnique)) {
                 console.log('Cannot input duplicate numbers!');
                 return;
             }
@@ -26,24 +26,22 @@ class GuessNumber {
 
             if (input === answer) {
                 console.log(`Congratulations!`);
-                break;
+                return;
             } else {
                 console.log(result);
             }
         }
-        if (times === 0) {
-            console.log(`Game Over`);
-            console.log(`正确答案是:${answer}`);
-        }
+        console.log(`Game Over`);
+        console.log(`正确答案是:${answer}`);
 
         return 0;
     }
 
-    static  inputNumber(){
-        return   scanf('%c');
+    static  inputNumber() {
+        return scanf('%c');
     };
 
-    static isUnique (item, index, array) {
+    static isUnique(item, index, array) {
         return array.lastIndexOf(item) === index;
     };
 
@@ -51,4 +49,4 @@ class GuessNumber {
 
 GuessNumber.guessNumber();
 
-module.exports = GuessNumber ;
+module.exports = GuessNumber;

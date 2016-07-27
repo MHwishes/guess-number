@@ -1,34 +1,17 @@
 class CompareNumber {
     
-   static getResult(result,input) {
+   static getResult(answer,input) {
 
-        const getA=(resultArray, inputArray)=>{
+       const inputs = input.split('');
+       const answers = answer.split('');
 
-            return  resultArray.map(result=> {
-                return result === inputArray[resultArray.indexOf(result)] ? 1 : 0;
-            }).reduce((a,b)=>a+b);
-        };
+       const rightDigitCount = inputs.filter(c => answers.includes(c)).length;
+       const x = inputs.filter(c => answers.indexOf(c) === inputs.indexOf(c)).length;
+       const y = rightDigitCount - x;
 
-        const  getB = (resultArray, inputArray)=> {
-
-            return  resultArray.map(result=> {
-                return result != inputArray[resultArray.indexOf(result)] &&
-                inputArray.some(input=>input === result) ? 1 : 0;
-            }).reduce((a,b)=>a+b);
-        };
-
-        const resultArray = result.split('');
-        const inputArray = input.split('');
-
-        const countA = getA(resultArray, inputArray);
-
-        const countB = getB(resultArray, inputArray);
-
-        return `${countA}A${countB}B`;
-
-    }
+       return `${x}A${y}B`;
+   }
 
 }
-
 
 module.exports = CompareNumber;
